@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   # As a user, I can create a movie list
   # As a user, I can see the details of a movie list
   resources :lists, only: [:index, :new, :create, :show] do
+    collection do
+      get :test
+    end
     # As a user, I can bookmark a movie inside a movie list
     # => lists#show form => bookmarks#create
     # As a user, I can destroy a bookmark

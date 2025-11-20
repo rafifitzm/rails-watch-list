@@ -1,6 +1,8 @@
 class ListsController < ApplicationController
   def index
     @lists = List.all
+    @images = ["cinema-projector-modern", "cinema-projector-tape", "cinema-projector", "cinema-seats-dark", "cinema-sign"].shuffle
+    @lists_length = @lists.length
   end
 
   def new
@@ -19,6 +21,9 @@ class ListsController < ApplicationController
     @bookmarks = @list.bookmarks
     @bookmark = Bookmark.new
     @movies = Movie.all
+  end
+
+  def test
   end
 
   private
