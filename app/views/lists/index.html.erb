@@ -1,6 +1,31 @@
-<h1>Your lists</h1>
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list) %></li>
-  <% end %>
-</ul>
+<div class="container py-3">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <div class="card" style="height: 400px;">
+        <%= image_tag "cinema-seats.jpg", alt: "Cinematic rows of deep red cinema seats", class: "img-fluid rounded card-img h-100" %>
+        <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
+          <h1>Your lists</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center py-3">
+    <% @lists.each do |list| %>
+      <div class="col-4 mb-3">
+        <div class="card">
+          <%= image_tag "cinema-projector", alt: "Cinematic projector with smoke and light", class: "card-img img-fluid rounded" %>
+          <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
+            <%= link_to list.name, list_path(list), class: "btn" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row justify-content-center py-3">
+    <div class="col 4">
+      <%= link_to "Create a New List", new_list_path, class: "btn" %>
+    </div>
+  </div>
+</div>
