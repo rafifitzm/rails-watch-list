@@ -18,3 +18,54 @@
   <%= form.input :comment %>
   <%= form.button :submit %>
 <% end %>
+
+
+<div class="container py-5">
+  <div class="row justify-content-center mb-5">
+    <div class="col-10">
+      <div class="card" style="height: 400px;">
+        <%= image_tag "cinema-seats.jpg", alt: "Cinematic rows of deep red cinema seats", class: "img-fluid object-fit-cover rounded card-img h-100" %>
+        <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
+          <h1 class="p-2 text-info-emphasis bg-info-subtle fw-bold rounded-2"><%= @list.name %></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row py-3">
+    <% @bookmarks.each_with_index do |bookmark, i| %>
+      <div class="col-4 mb-3">
+        <div class="card">
+          <% if bookmark.movie.poster_url %>
+            <%= image_tag bookmark.movie.poster_url, alt: bookmark.movie.title, class: "card-img img-fluid rounded" %>
+          <% end %>
+          <div class="card-img-overlay d-flex justify-content-start align-items-start mt-4">
+              <%= link_to "Delete this movie", list_bookmark_path(@list, bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+          </div>
+          <h4 class="text-light bg-info bg-opacity-10 rounded-2 p-2">Movie title: <%= bookmark.movie.title %></h4>
+          <h4 class="text-dark bg-info bg-opacity-10 rounded-2 p-2">Movie overview: <%= bookmark.movie.overview %></h4>
+          <h4 class="text-info-emphasis bg-info-subtle fw-bold rounded-2 p-2">Movie rating: <%= bookmark.movie.rating %></h4>
+          <h4 class="text-info-emphasis bg-info-subtle fw-bold rounded-2 p-2">Your comment: <%= bookmark.comment %></h4>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row justify-content-center pb-3">
+    <div class="col-4">
+      <h2>Add a Movie to Your List:</h2>
+      <%= simple_form_for [@list, @bookmark] do |form| %>
+        <%= form.input :movie_id, collection: @movies %>
+        <%= form.input :comment %>
+        <%= form.button :submit %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center pb-3">
+    <div class="col-4">
+      <%= link_to "Back to lists", lists_path, class: "btn btn-outline-primary" %>
+    </div>
+  </div>
+</div>

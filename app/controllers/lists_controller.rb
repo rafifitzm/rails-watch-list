@@ -21,6 +21,8 @@ class ListsController < ApplicationController
     @bookmarks = @list.bookmarks
     @bookmark = Bookmark.new
     @movies = Movie.all
+    @images = ["cinema-projector-modern", "cinema-projector-tape", "cinema-projector", "cinema-seats-dark", "cinema-sign"].shuffle
+    @bookmarks_length = @bookmarks.length
   end
 
   def destroy
