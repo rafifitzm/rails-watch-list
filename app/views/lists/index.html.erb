@@ -4,8 +4,7 @@
       <div class="card" style="height: 400px;">
         <%= image_tag "cinema-seats.jpg", alt: "Cinematic rows of deep red cinema seats", class: "img-fluid object-fit-cover rounded card-img h-100" %>
         <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
-          <h1 class="p-2 text-info-emphasis bg-info-subtle fw-bold">Your lists</h1>
-          </div>
+          <h1 class="p-2 text-info-emphasis bg-info-subtle fw-bold rounded-2">Your lists</h1>
         </div>
       </div>
     </div>
@@ -16,8 +15,14 @@
       <div class="col-4 mb-3">
         <div class="card">
           <%= image_tag @images[i % @lists_length], alt: "Cinematic projector with smoke and light", class: "card-img img-fluid rounded" %>
-          <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
-            <%= link_to list.name, list_path(list), class: "btn text-info-emphasis bg-info-subtle" %>
+          <div class="card-img-overlay d-flex flex-column justify-content-between align-items-center mt-4">
+            <h4 class="text-info-emphasis bg-info-subtle fw-bold rounded-2 p-2"><%= list.name %></h4>
+
+            <div class="d-flex flex-row justify-content-between w-100">
+              <%= link_to "Add to this list", list_path(list), class: "btn btn-outline-primary" %>
+              <%= link_to "Delete this list", list_path(list), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+            </div>
+
           </div>
         </div>
       </div>

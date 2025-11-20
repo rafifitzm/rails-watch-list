@@ -23,6 +23,13 @@ class ListsController < ApplicationController
     @movies = Movie.all
   end
 
+  def destroy
+    @list = List.find(params[:id])
+    if @list.destroy
+      redirect_to lists_path
+    end
+  end
+
   def test
   end
 
