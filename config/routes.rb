@@ -18,6 +18,6 @@ Rails.application.routes.draw do
     # => lists#show form => bookmarks#create
     # As a user, I can destroy a bookmark
     # => bookmarks#destroy via link from lists#show
-    resources :bookmarks, only: [:create, :destroy, :show]
+    resources :bookmarks, only: [:create, :destroy]
   end
 end

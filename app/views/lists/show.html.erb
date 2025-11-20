@@ -8,7 +8,6 @@
       <p class="list-group-item"><%= bookmark.movie.overview %></p>
       <h5>Rating:</h5>
       <p class="list-group-item"><%= bookmark.movie.rating %></p>
-      <%= link_to "Show Bookmark", list_bookmark_path(@list, bookmark) %>
       <%= link_to "Delete Bookmark", list_bookmark_path(@list, bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "text-danger" %>
     </li>
   <% end %>
