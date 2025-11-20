@@ -7,4 +7,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  root "lists#index"
+  # User actions:
+  # As a user, I can see all my movie lists
+  # As a user, I can create a movie list
+  # As a user, I can see the details of a movie list
+  resources :lists, only: [:index, :new, :create, :show]
+
 end
