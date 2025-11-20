@@ -13,3 +13,5 @@ Movie.all.each do |movie|
   bookmark.movie = movie
   bookmark.save!
 end
+
+Movie.create(title: "Movie title", overview: "A movie about something", rating: 8.0)

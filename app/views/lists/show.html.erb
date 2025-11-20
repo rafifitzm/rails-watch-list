@@ -11,3 +11,9 @@
     </li>
   <% end %>
 </ul>
+<h2>Add a Movie to Your List:</h2>
+<%= simple_form_for [@list, @bookmark] do |form| %>
+  <%= form.input :movie_id, collection: @movies %>
+  <%= form.input :comment %>
+  <%= form.button :submit %>
+<% end %>
