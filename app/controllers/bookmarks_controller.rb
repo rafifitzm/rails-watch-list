@@ -7,7 +7,18 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    if @bookmark.destroy
+      redirect_to list_path(@bookmark.list)
+    end
+  end
+
+  def show
+  end
+
   private
+
   def bookmark_params
     params.require(:bookmark).permit(:comment, :movie_id)
   end
