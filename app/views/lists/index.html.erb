@@ -14,7 +14,11 @@
     <% @lists.each_with_index do |list, i| %>
       <div class="col-4 mb-3">
         <div class="card">
-          <%= image_tag @images[i % @lists_length], alt: "Cinematic projector with smoke and light", class: "card-img img-fluid rounded" %>
+          <%# @images[i % @lists_length] %>
+          <% if list.image.attached? %>
+            <%= image_tag list.image, alt: "Cinematic projector with smoke and light", class: "card-img img-fluid rounded" %>
+          <% end %>
+
           <div class="card-img-overlay d-flex flex-column justify-content-between align-items-center mt-4">
             <h4 class="text-info-emphasis bg-info-subtle fw-bold rounded-2 p-2"><%= list.name %></h4>
 
