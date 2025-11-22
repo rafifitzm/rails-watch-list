@@ -10,6 +10,12 @@ list = List.new(name: "My List")
 image = ["cinema-projector-modern", "cinema-projector-tape", "cinema-projector", "cinema-seats-dark", "cinema-sign"].sample
 list.image.attach(io: File.open("app/assets/images/#{image}.jpg"), filename: "image.jpg", content_type: "image/jpeg")
 list.save
+
+# Cloudinary::Uploader.upload("san_francisco.jpg")
+# article = Article.new(title: "NES", body: "A great console")
+# article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+# article.save
+
 Movie.all.each do |movie|
   bookmark = Bookmark.new(comment: "123456")
   bookmark.list = list

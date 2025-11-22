@@ -1,6 +1,13 @@
 <div class="container py-5">
   <div class="row justify-content-center mb-5">
     <div class="col-10">
+      <%# <%= cl_image_tag "wsyaaaatrrllm8fxavub", width: 400, height: 300, crop: :fill %>
+      <%# <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-5">
+    <div class="col-10">
       <div class="card" style="height: 400px;">
         <%= image_tag "cinema-seats.jpg", alt: "Cinematic rows of deep red cinema seats", class: "img-fluid object-fit-cover rounded card-img h-100" %>
         <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
@@ -16,6 +23,8 @@
         <div class="card">
           <%# @images[i % @lists_length] %>
           <% if list.image.attached? %>
+            <%# <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
+            <%= cl_image_tag list.image.key %>
             <%= image_tag list.image, alt: "Cinematic projector with smoke and light", class: "card-img img-fluid rounded" %>
           <% end %>
 
