@@ -33,6 +33,7 @@ class ListsController < ApplicationController
     if @list.destroy
       redirect_to lists_path
     end
+
   end
 
   def test

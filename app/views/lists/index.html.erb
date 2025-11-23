@@ -24,7 +24,7 @@
           <%# @images[i % @lists_length] %>
           <% if list.image.attached? %>
             <%# <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
-            <%= cl_image_tag list.image.key %>
+            <%= cl_image_tag list.image.key, class: "card-img img-fluid rounded", width: 288, height: 192, crop: :fill %>
             <%= image_tag list.image, alt: "Cinematic projector with smoke and light", class: "card-img img-fluid rounded" %>
           <% end %>
 
