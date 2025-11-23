@@ -20,7 +20,7 @@
   <div class="row py-3">
     <% @lists.each_with_index do |list, i| %>
       <div class="col-4 mb-3">
-        <div class="card", style="height: 276px;">
+        <div class="card" style="height: 276px;">
           <%# @images[i % @lists_length] %>
           <% if list.image.attached? %>
             <%# <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
